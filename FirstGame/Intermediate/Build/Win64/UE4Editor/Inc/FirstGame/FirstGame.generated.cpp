@@ -31,6 +31,8 @@ void EmptyLinkFunctionForGeneratedCode1FirstGame() {}
 	ENGINE_API class UClass* Z_Construct_UClass_AActor();
 	ENGINE_API class UClass* Z_Construct_UClass_UProjectileMovementComponent_NoRegister();
 	ENGINE_API class UClass* Z_Construct_UClass_USphereComponent_NoRegister();
+	ENGINE_API class UClass* Z_Construct_UClass_UStaticMeshComponent_NoRegister();
+	ENGINE_API class UClass* Z_Construct_UClass_UShapeComponent_NoRegister();
 
 	FIRSTGAME_API class UClass* Z_Construct_UClass_AFirstGameCharacter_NoRegister();
 	FIRSTGAME_API class UClass* Z_Construct_UClass_AFirstGameCharacter();
@@ -41,6 +43,8 @@ void EmptyLinkFunctionForGeneratedCode1FirstGame() {}
 	FIRSTGAME_API class UFunction* Z_Construct_UFunction_AFirstGameProjectile_OnHit();
 	FIRSTGAME_API class UClass* Z_Construct_UClass_AFirstGameProjectile_NoRegister();
 	FIRSTGAME_API class UClass* Z_Construct_UClass_AFirstGameProjectile();
+	FIRSTGAME_API class UClass* Z_Construct_UClass_AMyActor_NoRegister();
+	FIRSTGAME_API class UClass* Z_Construct_UClass_AMyActor();
 	FIRSTGAME_API class UPackage* Z_Construct_UPackage__Script_FirstGame();
 	void AFirstGameCharacter::StaticRegisterNativesAFirstGameCharacter()
 	{
@@ -325,6 +329,53 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 	IMPLEMENT_CLASS(AFirstGameProjectile, 330479539);
 	static FCompiledInDefer Z_CompiledInDefer_UClass_AFirstGameProjectile(Z_Construct_UClass_AFirstGameProjectile, &AFirstGameProjectile::StaticClass, TEXT("/Script/FirstGame"), TEXT("AFirstGameProjectile"), false, nullptr, nullptr, nullptr);
 	DEFINE_VTABLE_PTR_HELPER_CTOR(AFirstGameProjectile);
+	void AMyActor::StaticRegisterNativesAMyActor()
+	{
+	}
+	UClass* Z_Construct_UClass_AMyActor_NoRegister()
+	{
+		return AMyActor::StaticClass();
+	}
+	UClass* Z_Construct_UClass_AMyActor()
+	{
+		static UClass* OuterClass = NULL;
+		if (!OuterClass)
+		{
+			Z_Construct_UClass_AActor();
+			Z_Construct_UPackage__Script_FirstGame();
+			OuterClass = AMyActor::StaticClass();
+			if (!(OuterClass->ClassFlags & CLASS_Constructed))
+			{
+				UObjectForceRegistration(OuterClass);
+				OuterClass->ClassFlags |= 0x20900080;
+
+
+PRAGMA_DISABLE_DEPRECATION_WARNINGS
+				UProperty* NewProp_MyMesh = new(EC_InternalUseOnlyConstructor, OuterClass, TEXT("MyMesh"), RF_Public|RF_Transient|RF_MarkAsNative) UObjectProperty(CPP_PROPERTY_BASE(MyMesh, AMyActor), 0x0010000000080009, Z_Construct_UClass_UStaticMeshComponent_NoRegister());
+				UProperty* NewProp_Root = new(EC_InternalUseOnlyConstructor, OuterClass, TEXT("Root"), RF_Public|RF_Transient|RF_MarkAsNative) UObjectProperty(CPP_PROPERTY_BASE(Root, AMyActor), 0x0010000000080009, Z_Construct_UClass_UShapeComponent_NoRegister());
+PRAGMA_ENABLE_DEPRECATION_WARNINGS
+				static TCppClassTypeInfo<TCppClassTypeTraits<AMyActor> > StaticCppClassTypeInfo;
+				OuterClass->SetCppTypeInfo(&StaticCppClassTypeInfo);
+				OuterClass->StaticLink();
+#if WITH_METADATA
+				UMetaData* MetaData = OuterClass->GetOutermost()->GetMetaData();
+				MetaData->SetValue(OuterClass, TEXT("IncludePath"), TEXT("MyActor.h"));
+				MetaData->SetValue(OuterClass, TEXT("ModuleRelativePath"), TEXT("MyActor.h"));
+				MetaData->SetValue(NewProp_MyMesh, TEXT("Category"), TEXT("MyActor"));
+				MetaData->SetValue(NewProp_MyMesh, TEXT("EditInline"), TEXT("true"));
+				MetaData->SetValue(NewProp_MyMesh, TEXT("ModuleRelativePath"), TEXT("MyActor.h"));
+				MetaData->SetValue(NewProp_Root, TEXT("Category"), TEXT("MyActor"));
+				MetaData->SetValue(NewProp_Root, TEXT("EditInline"), TEXT("true"));
+				MetaData->SetValue(NewProp_Root, TEXT("ModuleRelativePath"), TEXT("MyActor.h"));
+#endif
+			}
+		}
+		check(OuterClass->GetClass());
+		return OuterClass;
+	}
+	IMPLEMENT_CLASS(AMyActor, 2802697732);
+	static FCompiledInDefer Z_CompiledInDefer_UClass_AMyActor(Z_Construct_UClass_AMyActor, &AMyActor::StaticClass, TEXT("/Script/FirstGame"), TEXT("AMyActor"), false, nullptr, nullptr, nullptr);
+	DEFINE_VTABLE_PTR_HELPER_CTOR(AMyActor);
 	UPackage* Z_Construct_UPackage__Script_FirstGame()
 	{
 		static UPackage* ReturnPackage = nullptr;
@@ -333,8 +384,8 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 			ReturnPackage = CastChecked<UPackage>(StaticFindObjectFast(UPackage::StaticClass(), nullptr, FName(TEXT("/Script/FirstGame")), false, false));
 			ReturnPackage->SetPackageFlags(PKG_CompiledIn | 0x00000000);
 			FGuid Guid;
-			Guid.A = 0x06E6AFB8;
-			Guid.B = 0x9E2649F4;
+			Guid.A = 0xC51E2CC6;
+			Guid.B = 0xDCF6C97F;
 			Guid.C = 0x00000000;
 			Guid.D = 0x00000000;
 			ReturnPackage->SetGuid(Guid);

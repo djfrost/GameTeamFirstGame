@@ -17,3 +17,6 @@
 #ifndef FIRSTGAME_FirstGameProjectile_generated_h
 	#include "FirstGameProjectile.h"
 #endif
+#ifndef FIRSTGAME_MyActor_generated_h
+	#include "MyActor.h"
+#endif
