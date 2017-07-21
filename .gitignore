@@ -115,3 +115,13 @@ $RECYCLE.BIN/
 
 *.VC.db
 FirstGame/Saved/Config/Windows/EditorPerProjectUserSettings.ini
+*.response
+FirstGame/Saved/Config/CrashReportClient/UE4CC-Windows-0556E9B048F3FE66451D169AF1D3D837/CrashReportClient.ini
+*.ini
+*.ini
+*.ini
+FirstGame/Saved/Config/Windows/Engine.ini
+FirstGame/Saved/AutoScreenshot.png
+*.json
+*.bin
+FirstGame/Intermediate/Build/Win64/UE4Editor/Inc/FirstGame/Timestamp

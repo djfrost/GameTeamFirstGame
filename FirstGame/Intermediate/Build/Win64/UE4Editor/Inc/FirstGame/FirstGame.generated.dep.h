@@ -5,18 +5,12 @@
 ===========================================================================*/
 
 #include "GeneratedCppIncludes.h"
-#ifndef FIRSTGAME_FirstGameCharacter_generated_h
-	#include "FirstGameCharacter.h"
-#endif
 #ifndef FIRSTGAME_FirstGameGameMode_generated_h
 	#include "FirstGameGameMode.h"
 #endif
 #ifndef FIRSTGAME_FirstGameHUD_generated_h
 	#include "FirstGameHUD.h"
 #endif
-#ifndef FIRSTGAME_FirstGameProjectile_generated_h
-	#include "FirstGameProjectile.h"
-#endif
-#ifndef FIRSTGAME_MyActor_generated_h
-	#include "MyActor.h"
+#ifndef FIRSTGAME_MainCharacter_generated_h
+	#include "MainCharacter.h"
 #endif

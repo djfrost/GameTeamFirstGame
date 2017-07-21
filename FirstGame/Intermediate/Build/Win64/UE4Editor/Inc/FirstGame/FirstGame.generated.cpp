@@ -15,150 +15,20 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCode1FirstGame() {}
 #if USE_COMPILED_IN_NATIVES
 // Cross Module References
-	ENGINE_API class UClass* Z_Construct_UClass_ACharacter();
-	ENGINE_API class UClass* Z_Construct_UClass_UAnimMontage_NoRegister();
-	ENGINE_API class UClass* Z_Construct_UClass_USoundBase_NoRegister();
-	COREUOBJECT_API class UScriptStruct* Z_Construct_UScriptStruct_FVector();
-	HEADMOUNTEDDISPLAY_API class UClass* Z_Construct_UClass_UMotionControllerComponent_NoRegister();
-	ENGINE_API class UClass* Z_Construct_UClass_UCameraComponent_NoRegister();
-	ENGINE_API class UClass* Z_Construct_UClass_USceneComponent_NoRegister();
-	ENGINE_API class UClass* Z_Construct_UClass_USkeletalMeshComponent_NoRegister();
 	ENGINE_API class UClass* Z_Construct_UClass_AGameModeBase();
 	ENGINE_API class UClass* Z_Construct_UClass_AHUD();
-	ENGINE_API class UScriptStruct* Z_Construct_UScriptStruct_FHitResult();
-	ENGINE_API class UClass* Z_Construct_UClass_UPrimitiveComponent_NoRegister();
-	ENGINE_API class UClass* Z_Construct_UClass_AActor_NoRegister();
-	ENGINE_API class UClass* Z_Construct_UClass_AActor();
-	ENGINE_API class UClass* Z_Construct_UClass_UProjectileMovementComponent_NoRegister();
-	ENGINE_API class UClass* Z_Construct_UClass_USphereComponent_NoRegister();
-	ENGINE_API class UClass* Z_Construct_UClass_UStaticMeshComponent_NoRegister();
-	ENGINE_API class UClass* Z_Construct_UClass_UShapeComponent_NoRegister();
+	ENGINE_API class UClass* Z_Construct_UClass_ACharacter();
+	ENGINE_API class UClass* Z_Construct_UClass_USkeletalMeshComponent_NoRegister();
+	ENGINE_API class UClass* Z_Construct_UClass_UCameraComponent_NoRegister();
 
-	FIRSTGAME_API class UClass* Z_Construct_UClass_AFirstGameCharacter_NoRegister();
-	FIRSTGAME_API class UClass* Z_Construct_UClass_AFirstGameCharacter();
 	FIRSTGAME_API class UClass* Z_Construct_UClass_AFirstGameGameMode_NoRegister();
 	FIRSTGAME_API class UClass* Z_Construct_UClass_AFirstGameGameMode();
 	FIRSTGAME_API class UClass* Z_Construct_UClass_AFirstGameHUD_NoRegister();
 	FIRSTGAME_API class UClass* Z_Construct_UClass_AFirstGameHUD();
-	FIRSTGAME_API class UFunction* Z_Construct_UFunction_AFirstGameProjectile_OnHit();
-	FIRSTGAME_API class UClass* Z_Construct_UClass_AFirstGameProjectile_NoRegister();
-	FIRSTGAME_API class UClass* Z_Construct_UClass_AFirstGameProjectile();
-	FIRSTGAME_API class UClass* Z_Construct_UClass_AMyActor_NoRegister();
-	FIRSTGAME_API class UClass* Z_Construct_UClass_AMyActor();
+	FIRSTGAME_API class UFunction* Z_Construct_UFunction_AMainCharacter_ChangeInteractionMode();
+	FIRSTGAME_API class UClass* Z_Construct_UClass_AMainCharacter_NoRegister();
+	FIRSTGAME_API class UClass* Z_Construct_UClass_AMainCharacter();
 	FIRSTGAME_API class UPackage* Z_Construct_UPackage__Script_FirstGame();
-	void AFirstGameCharacter::StaticRegisterNativesAFirstGameCharacter()
-	{
-	}
-	UClass* Z_Construct_UClass_AFirstGameCharacter_NoRegister()
-	{
-		return AFirstGameCharacter::StaticClass();
-	}
-	UClass* Z_Construct_UClass_AFirstGameCharacter()
-	{
-		static UClass* OuterClass = NULL;
-		if (!OuterClass)
-		{
-			Z_Construct_UClass_ACharacter();
-			Z_Construct_UPackage__Script_FirstGame();
-			OuterClass = AFirstGameCharacter::StaticClass();
-			if (!(OuterClass->ClassFlags & CLASS_Constructed))
-			{
-				UObjectForceRegistration(OuterClass);
-				OuterClass->ClassFlags |= 0x20800080;
-
-
-PRAGMA_DISABLE_DEPRECATION_WARNINGS
-				CPP_BOOL_PROPERTY_BITMASK_STRUCT(bUsingMotionControllers, AFirstGameCharacter, uint8);
-				UProperty* NewProp_bUsingMotionControllers = new(EC_InternalUseOnlyConstructor, OuterClass, TEXT("bUsingMotionControllers"), RF_Public|RF_Transient|RF_MarkAsNative) UBoolProperty(FObjectInitializer(), EC_CppProperty, CPP_BOOL_PROPERTY_OFFSET(bUsingMotionControllers, AFirstGameCharacter), 0x0010000000000005, CPP_BOOL_PROPERTY_BITMASK(bUsingMotionControllers, AFirstGameCharacter), sizeof(uint8), false);
-				UProperty* NewProp_FireAnimation = new(EC_InternalUseOnlyConstructor, OuterClass, TEXT("FireAnimation"), RF_Public|RF_Transient|RF_MarkAsNative) UObjectProperty(CPP_PROPERTY_BASE(FireAnimation, AFirstGameCharacter), 0x0010000000000005, Z_Construct_UClass_UAnimMontage_NoRegister());
-				UProperty* NewProp_FireSound = new(EC_InternalUseOnlyConstructor, OuterClass, TEXT("FireSound"), RF_Public|RF_Transient|RF_MarkAsNative) UObjectProperty(CPP_PROPERTY_BASE(FireSound, AFirstGameCharacter), 0x0010000000000005, Z_Construct_UClass_USoundBase_NoRegister());
-				UProperty* NewProp_ProjectileClass = new(EC_InternalUseOnlyConstructor, OuterClass, TEXT("ProjectileClass"), RF_Public|RF_Transient|RF_MarkAsNative) UClassProperty(CPP_PROPERTY_BASE(ProjectileClass, AFirstGameCharacter), 0x0014000000010001, Z_Construct_UClass_AFirstGameProjectile_NoRegister(), UClass::StaticClass());
-				UProperty* NewProp_GunOffset = new(EC_InternalUseOnlyConstructor, OuterClass, TEXT("GunOffset"), RF_Public|RF_Transient|RF_MarkAsNative) UStructProperty(CPP_PROPERTY_BASE(GunOffset, AFirstGameCharacter), 0x0010000000000005, Z_Construct_UScriptStruct_FVector());
-				UProperty* NewProp_BaseLookUpRate = new(EC_InternalUseOnlyConstructor, OuterClass, TEXT("BaseLookUpRate"), RF_Public|RF_Transient|RF_MarkAsNative) UFloatProperty(CPP_PROPERTY_BASE(BaseLookUpRate, AFirstGameCharacter), 0x0010000000020015);
-				UProperty* NewProp_BaseTurnRate = new(EC_InternalUseOnlyConstructor, OuterClass, TEXT("BaseTurnRate"), RF_Public|RF_Transient|RF_MarkAsNative) UFloatProperty(CPP_PROPERTY_BASE(BaseTurnRate, AFirstGameCharacter), 0x0010000000020015);
-				UProperty* NewProp_L_MotionController = new(EC_InternalUseOnlyConstructor, OuterClass, TEXT("L_MotionController"), RF_Public|RF_Transient|RF_MarkAsNative) UObjectProperty(CPP_PROPERTY_BASE(L_MotionController, AFirstGameCharacter), 0x00400000000a001d, Z_Construct_UClass_UMotionControllerComponent_NoRegister());
-				UProperty* NewProp_R_MotionController = new(EC_InternalUseOnlyConstructor, OuterClass, TEXT("R_MotionController"), RF_Public|RF_Transient|RF_MarkAsNative) UObjectProperty(CPP_PROPERTY_BASE(R_MotionController, AFirstGameCharacter), 0x00400000000a001d, Z_Construct_UClass_UMotionControllerComponent_NoRegister());
-				UProperty* NewProp_FirstPersonCameraComponent = new(EC_InternalUseOnlyConstructor, OuterClass, TEXT("FirstPersonCameraComponent"), RF_Public|RF_Transient|RF_MarkAsNative) UObjectProperty(CPP_PROPERTY_BASE(FirstPersonCameraComponent, AFirstGameCharacter), 0x00400000000a001d, Z_Construct_UClass_UCameraComponent_NoRegister());
-				UProperty* NewProp_VR_MuzzleLocation = new(EC_InternalUseOnlyConstructor, OuterClass, TEXT("VR_MuzzleLocation"), RF_Public|RF_Transient|RF_MarkAsNative) UObjectProperty(CPP_PROPERTY_BASE(VR_MuzzleLocation, AFirstGameCharacter), 0x00400000000b0009, Z_Construct_UClass_USceneComponent_NoRegister());
-				UProperty* NewProp_VR_Gun = new(EC_InternalUseOnlyConstructor, OuterClass, TEXT("VR_Gun"), RF_Public|RF_Transient|RF_MarkAsNative) UObjectProperty(CPP_PROPERTY_BASE(VR_Gun, AFirstGameCharacter), 0x00400000000b0009, Z_Construct_UClass_USkeletalMeshComponent_NoRegister());
-				UProperty* NewProp_FP_MuzzleLocation = new(EC_InternalUseOnlyConstructor, OuterClass, TEXT("FP_MuzzleLocation"), RF_Public|RF_Transient|RF_MarkAsNative) UObjectProperty(CPP_PROPERTY_BASE(FP_MuzzleLocation, AFirstGameCharacter), 0x00400000000b0009, Z_Construct_UClass_USceneComponent_NoRegister());
-				UProperty* NewProp_FP_Gun = new(EC_InternalUseOnlyConstructor, OuterClass, TEXT("FP_Gun"), RF_Public|RF_Transient|RF_MarkAsNative) UObjectProperty(CPP_PROPERTY_BASE(FP_Gun, AFirstGameCharacter), 0x00400000000b0009, Z_Construct_UClass_USkeletalMeshComponent_NoRegister());
-				UProperty* NewProp_Mesh1P = new(EC_InternalUseOnlyConstructor, OuterClass, TEXT("Mesh1P"), RF_Public|RF_Transient|RF_MarkAsNative) UObjectProperty(CPP_PROPERTY_BASE(Mesh1P, AFirstGameCharacter), 0x00400000000b0009, Z_Construct_UClass_USkeletalMeshComponent_NoRegister());
-PRAGMA_ENABLE_DEPRECATION_WARNINGS
-				OuterClass->ClassConfigName = FName(TEXT("Game"));
-				static TCppClassTypeInfo<TCppClassTypeTraits<AFirstGameCharacter> > StaticCppClassTypeInfo;
-				OuterClass->SetCppTypeInfo(&StaticCppClassTypeInfo);
-				OuterClass->StaticLink();
-#if WITH_METADATA
-				UMetaData* MetaData = OuterClass->GetOutermost()->GetMetaData();
-				MetaData->SetValue(OuterClass, TEXT("HideCategories"), TEXT("Navigation"));
-				MetaData->SetValue(OuterClass, TEXT("IncludePath"), TEXT("FirstGameCharacter.h"));
-				MetaData->SetValue(OuterClass, TEXT("ModuleRelativePath"), TEXT("FirstGameCharacter.h"));
-				MetaData->SetValue(NewProp_bUsingMotionControllers, TEXT("Category"), TEXT("Gameplay"));
-				MetaData->SetValue(NewProp_bUsingMotionControllers, TEXT("ModuleRelativePath"), TEXT("FirstGameCharacter.h"));
-				MetaData->SetValue(NewProp_bUsingMotionControllers, TEXT("ToolTip"), TEXT("Whether to use motion controller location for aiming."));
-				MetaData->SetValue(NewProp_FireAnimation, TEXT("Category"), TEXT("Gameplay"));
-				MetaData->SetValue(NewProp_FireAnimation, TEXT("ModuleRelativePath"), TEXT("FirstGameCharacter.h"));
-				MetaData->SetValue(NewProp_FireAnimation, TEXT("ToolTip"), TEXT("AnimMontage to play each time we fire"));
-				MetaData->SetValue(NewProp_FireSound, TEXT("Category"), TEXT("Gameplay"));
-				MetaData->SetValue(NewProp_FireSound, TEXT("ModuleRelativePath"), TEXT("FirstGameCharacter.h"));
-				MetaData->SetValue(NewProp_FireSound, TEXT("ToolTip"), TEXT("Sound to play each time we fire"));
-				MetaData->SetValue(NewProp_ProjectileClass, TEXT("Category"), TEXT("Projectile"));
-				MetaData->SetValue(NewProp_ProjectileClass, TEXT("ModuleRelativePath"), TEXT("FirstGameCharacter.h"));
-				MetaData->SetValue(NewProp_ProjectileClass, TEXT("ToolTip"), TEXT("Projectile class to spawn"));
-				MetaData->SetValue(NewProp_GunOffset, TEXT("Category"), TEXT("Gameplay"));
-				MetaData->SetValue(NewProp_GunOffset, TEXT("ModuleRelativePath"), TEXT("FirstGameCharacter.h"));
-				MetaData->SetValue(NewProp_GunOffset, TEXT("ToolTip"), TEXT("Gun muzzle's offset from the characters location"));
-				MetaData->SetValue(NewProp_BaseLookUpRate, TEXT("Category"), TEXT("Camera"));
-				MetaData->SetValue(NewProp_BaseLookUpRate, TEXT("ModuleRelativePath"), TEXT("FirstGameCharacter.h"));
-				MetaData->SetValue(NewProp_BaseLookUpRate, TEXT("ToolTip"), TEXT("Base look up/down rate, in deg/sec. Other scaling may affect final rate."));
-				MetaData->SetValue(NewProp_BaseTurnRate, TEXT("Category"), TEXT("Camera"));
-				MetaData->SetValue(NewProp_BaseTurnRate, TEXT("ModuleRelativePath"), TEXT("FirstGameCharacter.h"));
-				MetaData->SetValue(NewProp_BaseTurnRate, TEXT("ToolTip"), TEXT("Base turn rate, in deg/sec. Other scaling may affect final turn rate."));
-				MetaData->SetValue(NewProp_L_MotionController, TEXT("AllowPrivateAccess"), TEXT("true"));
-				MetaData->SetValue(NewProp_L_MotionController, TEXT("Category"), TEXT("FirstGameCharacter"));
-				MetaData->SetValue(NewProp_L_MotionController, TEXT("EditInline"), TEXT("true"));
-				MetaData->SetValue(NewProp_L_MotionController, TEXT("ModuleRelativePath"), TEXT("FirstGameCharacter.h"));
-				MetaData->SetValue(NewProp_L_MotionController, TEXT("ToolTip"), TEXT("Motion controller (left hand)"));
-				MetaData->SetValue(NewProp_R_MotionController, TEXT("AllowPrivateAccess"), TEXT("true"));
-				MetaData->SetValue(NewProp_R_MotionController, TEXT("Category"), TEXT("FirstGameCharacter"));
-				MetaData->SetValue(NewProp_R_MotionController, TEXT("EditInline"), TEXT("true"));
-				MetaData->SetValue(NewProp_R_MotionController, TEXT("ModuleRelativePath"), TEXT("FirstGameCharacter.h"));
-				MetaData->SetValue(NewProp_R_MotionController, TEXT("ToolTip"), TEXT("Motion controller (right hand)"));
-				MetaData->SetValue(NewProp_FirstPersonCameraComponent, TEXT("AllowPrivateAccess"), TEXT("true"));
-				MetaData->SetValue(NewProp_FirstPersonCameraComponent, TEXT("Category"), TEXT("Camera"));
-				MetaData->SetValue(NewProp_FirstPersonCameraComponent, TEXT("EditInline"), TEXT("true"));
-				MetaData->SetValue(NewProp_FirstPersonCameraComponent, TEXT("ModuleRelativePath"), TEXT("FirstGameCharacter.h"));
-				MetaData->SetValue(NewProp_FirstPersonCameraComponent, TEXT("ToolTip"), TEXT("First person camera"));
-				MetaData->SetValue(NewProp_VR_MuzzleLocation, TEXT("Category"), TEXT("Mesh"));
-				MetaData->SetValue(NewProp_VR_MuzzleLocation, TEXT("EditInline"), TEXT("true"));
-				MetaData->SetValue(NewProp_VR_MuzzleLocation, TEXT("ModuleRelativePath"), TEXT("FirstGameCharacter.h"));
-				MetaData->SetValue(NewProp_VR_MuzzleLocation, TEXT("ToolTip"), TEXT("Location on VR gun mesh where projectiles should spawn."));
-				MetaData->SetValue(NewProp_VR_Gun, TEXT("Category"), TEXT("Mesh"));
-				MetaData->SetValue(NewProp_VR_Gun, TEXT("EditInline"), TEXT("true"));
-				MetaData->SetValue(NewProp_VR_Gun, TEXT("ModuleRelativePath"), TEXT("FirstGameCharacter.h"));
-				MetaData->SetValue(NewProp_VR_Gun, TEXT("ToolTip"), TEXT("Gun mesh: VR view (attached to the VR controller directly, no arm, just the actual gun)"));
-				MetaData->SetValue(NewProp_FP_MuzzleLocation, TEXT("Category"), TEXT("Mesh"));
-				MetaData->SetValue(NewProp_FP_MuzzleLocation, TEXT("EditInline"), TEXT("true"));
-				MetaData->SetValue(NewProp_FP_MuzzleLocation, TEXT("ModuleRelativePath"), TEXT("FirstGameCharacter.h"));
-				MetaData->SetValue(NewProp_FP_MuzzleLocation, TEXT("ToolTip"), TEXT("Location on gun mesh where projectiles should spawn."));
-				MetaData->SetValue(NewProp_FP_Gun, TEXT("Category"), TEXT("Mesh"));
-				MetaData->SetValue(NewProp_FP_Gun, TEXT("EditInline"), TEXT("true"));
-				MetaData->SetValue(NewProp_FP_Gun, TEXT("ModuleRelativePath"), TEXT("FirstGameCharacter.h"));
-				MetaData->SetValue(NewProp_FP_Gun, TEXT("ToolTip"), TEXT("Gun mesh: 1st person view (seen only by self)"));
-				MetaData->SetValue(NewProp_Mesh1P, TEXT("Category"), TEXT("Mesh"));
-				MetaData->SetValue(NewProp_Mesh1P, TEXT("EditInline"), TEXT("true"));
-				MetaData->SetValue(NewProp_Mesh1P, TEXT("ModuleRelativePath"), TEXT("FirstGameCharacter.h"));
-				MetaData->SetValue(NewProp_Mesh1P, TEXT("ToolTip"), TEXT("Pawn mesh: 1st person view (arms; seen only by self)"));
-#endif
-			}
-		}
-		check(OuterClass->GetClass());
-		return OuterClass;
-	}
-	IMPLEMENT_CLASS(AFirstGameCharacter, 2065985253);
-	static FCompiledInDefer Z_CompiledInDefer_UClass_AFirstGameCharacter(Z_Construct_UClass_AFirstGameCharacter, &AFirstGameCharacter::StaticClass, TEXT("/Script/FirstGame"), TEXT("AFirstGameCharacter"), false, nullptr, nullptr, nullptr);
-	DEFINE_VTABLE_PTR_HELPER_CTOR(AFirstGameCharacter);
 	void AFirstGameGameMode::StaticRegisterNativesAFirstGameGameMode()
 	{
 	}
@@ -238,144 +108,102 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 	IMPLEMENT_CLASS(AFirstGameHUD, 1057670143);
 	static FCompiledInDefer Z_CompiledInDefer_UClass_AFirstGameHUD(Z_Construct_UClass_AFirstGameHUD, &AFirstGameHUD::StaticClass, TEXT("/Script/FirstGame"), TEXT("AFirstGameHUD"), false, nullptr, nullptr, nullptr);
 	DEFINE_VTABLE_PTR_HELPER_CTOR(AFirstGameHUD);
-	void AFirstGameProjectile::StaticRegisterNativesAFirstGameProjectile()
+	void AMainCharacter::StaticRegisterNativesAMainCharacter()
 	{
-		UClass* Class = AFirstGameProjectile::StaticClass();
+		UClass* Class = AMainCharacter::StaticClass();
 		static const TNameNativePtrPair<ANSICHAR> AnsiFuncs[] = {
-			{ "OnHit", (Native)&AFirstGameProjectile::execOnHit },
+			{ "ChangeInteractionMode", (Native)&AMainCharacter::execChangeInteractionMode },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, AnsiFuncs, 1);
 	}
-	UFunction* Z_Construct_UFunction_AFirstGameProjectile_OnHit()
+	UFunction* Z_Construct_UFunction_AMainCharacter_ChangeInteractionMode()
 	{
-		struct FirstGameProjectile_eventOnHit_Parms
+		struct MainCharacter_eventChangeInteractionMode_Parms
 		{
-			UPrimitiveComponent* HitComp;
-			AActor* OtherActor;
-			UPrimitiveComponent* OtherComp;
-			FVector NormalImpulse;
-			FHitResult Hit;
+			bool FightMode;
 		};
-		UObject* Outer=Z_Construct_UClass_AFirstGameProjectile();
+		UObject* Outer=Z_Construct_UClass_AMainCharacter();
 		static UFunction* ReturnFunction = NULL;
 		if (!ReturnFunction)
 		{
-			ReturnFunction = new(EC_InternalUseOnlyConstructor, Outer, TEXT("OnHit"), RF_Public|RF_Transient|RF_MarkAsNative) UFunction(FObjectInitializer(), NULL, 0x00C20401, 65535, sizeof(FirstGameProjectile_eventOnHit_Parms));
-			UProperty* NewProp_Hit = new(EC_InternalUseOnlyConstructor, ReturnFunction, TEXT("Hit"), RF_Public|RF_Transient|RF_MarkAsNative) UStructProperty(CPP_PROPERTY_BASE(Hit, FirstGameProjectile_eventOnHit_Parms), 0x0010008008000182, Z_Construct_UScriptStruct_FHitResult());
-			UProperty* NewProp_NormalImpulse = new(EC_InternalUseOnlyConstructor, ReturnFunction, TEXT("NormalImpulse"), RF_Public|RF_Transient|RF_MarkAsNative) UStructProperty(CPP_PROPERTY_BASE(NormalImpulse, FirstGameProjectile_eventOnHit_Parms), 0x0010000000000080, Z_Construct_UScriptStruct_FVector());
-			UProperty* NewProp_OtherComp = new(EC_InternalUseOnlyConstructor, ReturnFunction, TEXT("OtherComp"), RF_Public|RF_Transient|RF_MarkAsNative) UObjectProperty(CPP_PROPERTY_BASE(OtherComp, FirstGameProjectile_eventOnHit_Parms), 0x0010000000080080, Z_Construct_UClass_UPrimitiveComponent_NoRegister());
-			UProperty* NewProp_OtherActor = new(EC_InternalUseOnlyConstructor, ReturnFunction, TEXT("OtherActor"), RF_Public|RF_Transient|RF_MarkAsNative) UObjectProperty(CPP_PROPERTY_BASE(OtherActor, FirstGameProjectile_eventOnHit_Parms), 0x0010000000000080, Z_Construct_UClass_AActor_NoRegister());
-			UProperty* NewProp_HitComp = new(EC_InternalUseOnlyConstructor, ReturnFunction, TEXT("HitComp"), RF_Public|RF_Transient|RF_MarkAsNative) UObjectProperty(CPP_PROPERTY_BASE(HitComp, FirstGameProjectile_eventOnHit_Parms), 0x0010000000080080, Z_Construct_UClass_UPrimitiveComponent_NoRegister());
+			ReturnFunction = new(EC_InternalUseOnlyConstructor, Outer, TEXT("ChangeInteractionMode"), RF_Public|RF_Transient|RF_MarkAsNative) UFunction(FObjectInitializer(), NULL, 0x04020401, 65535, sizeof(MainCharacter_eventChangeInteractionMode_Parms));
+			CPP_BOOL_PROPERTY_BITMASK_STRUCT(FightMode, MainCharacter_eventChangeInteractionMode_Parms, bool);
+			UProperty* NewProp_FightMode = new(EC_InternalUseOnlyConstructor, ReturnFunction, TEXT("FightMode"), RF_Public|RF_Transient|RF_MarkAsNative) UBoolProperty(FObjectInitializer(), EC_CppProperty, CPP_BOOL_PROPERTY_OFFSET(FightMode, MainCharacter_eventChangeInteractionMode_Parms), 0x0010000000000080, CPP_BOOL_PROPERTY_BITMASK(FightMode, MainCharacter_eventChangeInteractionMode_Parms), sizeof(bool), true);
 			ReturnFunction->Bind();
 			ReturnFunction->StaticLink();
 #if WITH_METADATA
 			UMetaData* MetaData = ReturnFunction->GetOutermost()->GetMetaData();
-			MetaData->SetValue(ReturnFunction, TEXT("ModuleRelativePath"), TEXT("FirstGameProjectile.h"));
-			MetaData->SetValue(ReturnFunction, TEXT("ToolTip"), TEXT("called when projectile hits something"));
-			MetaData->SetValue(NewProp_Hit, TEXT("NativeConst"), TEXT(""));
-			MetaData->SetValue(NewProp_OtherComp, TEXT("EditInline"), TEXT("true"));
-			MetaData->SetValue(NewProp_HitComp, TEXT("EditInline"), TEXT("true"));
+			MetaData->SetValue(ReturnFunction, TEXT("Category"), TEXT("Gameplay|Character"));
+			MetaData->SetValue(ReturnFunction, TEXT("Keywords"), TEXT("Main Character Interaction Mode Fight"));
+			MetaData->SetValue(ReturnFunction, TEXT("ModuleRelativePath"), TEXT("MainCharacter.h"));
+			MetaData->SetValue(ReturnFunction, TEXT("ToolTip"), TEXT("pass in false for basic exploration mode, and true for fight mode"));
 #endif
 		}
 		return ReturnFunction;
 	}
-	UClass* Z_Construct_UClass_AFirstGameProjectile_NoRegister()
+	UClass* Z_Construct_UClass_AMainCharacter_NoRegister()
 	{
-		return AFirstGameProjectile::StaticClass();
+		return AMainCharacter::StaticClass();
 	}
-	UClass* Z_Construct_UClass_AFirstGameProjectile()
+	UClass* Z_Construct_UClass_AMainCharacter()
 	{
 		static UClass* OuterClass = NULL;
 		if (!OuterClass)
 		{
-			Z_Construct_UClass_AActor();
+			Z_Construct_UClass_ACharacter();
 			Z_Construct_UPackage__Script_FirstGame();
-			OuterClass = AFirstGameProjectile::StaticClass();
+			OuterClass = AMainCharacter::StaticClass();
 			if (!(OuterClass->ClassFlags & CLASS_Constructed))
 			{
 				UObjectForceRegistration(OuterClass);
 				OuterClass->ClassFlags |= 0x20800080;
 
-				OuterClass->LinkChild(Z_Construct_UFunction_AFirstGameProjectile_OnHit());
+				OuterClass->LinkChild(Z_Construct_UFunction_AMainCharacter_ChangeInteractionMode());
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
-				UProperty* NewProp_ProjectileMovement = new(EC_InternalUseOnlyConstructor, OuterClass, TEXT("ProjectileMovement"), RF_Public|RF_Transient|RF_MarkAsNative) UObjectProperty(CPP_PROPERTY_BASE(ProjectileMovement, AFirstGameProjectile), 0x00400000000a001d, Z_Construct_UClass_UProjectileMovementComponent_NoRegister());
-				UProperty* NewProp_CollisionComp = new(EC_InternalUseOnlyConstructor, OuterClass, TEXT("CollisionComp"), RF_Public|RF_Transient|RF_MarkAsNative) UObjectProperty(CPP_PROPERTY_BASE(CollisionComp, AFirstGameProjectile), 0x00400000000b0009, Z_Construct_UClass_USphereComponent_NoRegister());
+				UProperty* NewProp_BaseLookUpRate = new(EC_InternalUseOnlyConstructor, OuterClass, TEXT("BaseLookUpRate"), RF_Public|RF_Transient|RF_MarkAsNative) UFloatProperty(CPP_PROPERTY_BASE(BaseLookUpRate, AMainCharacter), 0x0010000000020015);
+				UProperty* NewProp_BaseTurnRate = new(EC_InternalUseOnlyConstructor, OuterClass, TEXT("BaseTurnRate"), RF_Public|RF_Transient|RF_MarkAsNative) UFloatProperty(CPP_PROPERTY_BASE(BaseTurnRate, AMainCharacter), 0x0010000000020015);
+				CPP_BOOL_PROPERTY_BITMASK_STRUCT(CharacterMode, AMainCharacter, bool);
+				UProperty* NewProp_CharacterMode = new(EC_InternalUseOnlyConstructor, OuterClass, TEXT("CharacterMode"), RF_Public|RF_Transient|RF_MarkAsNative) UBoolProperty(FObjectInitializer(), EC_CppProperty, CPP_BOOL_PROPERTY_OFFSET(CharacterMode, AMainCharacter), 0x0040000000030001, CPP_BOOL_PROPERTY_BITMASK(CharacterMode, AMainCharacter), sizeof(bool), true);
+				UProperty* NewProp_Mesh1P = new(EC_InternalUseOnlyConstructor, OuterClass, TEXT("Mesh1P"), RF_Public|RF_Transient|RF_MarkAsNative) UObjectProperty(CPP_PROPERTY_BASE(Mesh1P, AMainCharacter), 0x00400000000b0009, Z_Construct_UClass_USkeletalMeshComponent_NoRegister());
+				UProperty* NewProp_FirstPersonCameraComponent = new(EC_InternalUseOnlyConstructor, OuterClass, TEXT("FirstPersonCameraComponent"), RF_Public|RF_Transient|RF_MarkAsNative) UObjectProperty(CPP_PROPERTY_BASE(FirstPersonCameraComponent, AMainCharacter), 0x00400000000a001d, Z_Construct_UClass_UCameraComponent_NoRegister());
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
-				OuterClass->AddFunctionToFunctionMapWithOverriddenName(Z_Construct_UFunction_AFirstGameProjectile_OnHit(), "OnHit"); // 1273858199
+				OuterClass->AddFunctionToFunctionMapWithOverriddenName(Z_Construct_UFunction_AMainCharacter_ChangeInteractionMode(), "ChangeInteractionMode"); // 3798622939
 				OuterClass->ClassConfigName = FName(TEXT("Game"));
-				static TCppClassTypeInfo<TCppClassTypeTraits<AFirstGameProjectile> > StaticCppClassTypeInfo;
+				static TCppClassTypeInfo<TCppClassTypeTraits<AMainCharacter> > StaticCppClassTypeInfo;
 				OuterClass->SetCppTypeInfo(&StaticCppClassTypeInfo);
 				OuterClass->StaticLink();
 #if WITH_METADATA
 				UMetaData* MetaData = OuterClass->GetOutermost()->GetMetaData();
-				MetaData->SetValue(OuterClass, TEXT("IncludePath"), TEXT("FirstGameProjectile.h"));
-				MetaData->SetValue(OuterClass, TEXT("ModuleRelativePath"), TEXT("FirstGameProjectile.h"));
-				MetaData->SetValue(NewProp_ProjectileMovement, TEXT("AllowPrivateAccess"), TEXT("true"));
-				MetaData->SetValue(NewProp_ProjectileMovement, TEXT("Category"), TEXT("Movement"));
-				MetaData->SetValue(NewProp_ProjectileMovement, TEXT("EditInline"), TEXT("true"));
-				MetaData->SetValue(NewProp_ProjectileMovement, TEXT("ModuleRelativePath"), TEXT("FirstGameProjectile.h"));
-				MetaData->SetValue(NewProp_ProjectileMovement, TEXT("ToolTip"), TEXT("Projectile movement component"));
-				MetaData->SetValue(NewProp_CollisionComp, TEXT("Category"), TEXT("Projectile"));
-				MetaData->SetValue(NewProp_CollisionComp, TEXT("EditInline"), TEXT("true"));
-				MetaData->SetValue(NewProp_CollisionComp, TEXT("ModuleRelativePath"), TEXT("FirstGameProjectile.h"));
-				MetaData->SetValue(NewProp_CollisionComp, TEXT("ToolTip"), TEXT("Sphere collision component"));
+				MetaData->SetValue(OuterClass, TEXT("HideCategories"), TEXT("Navigation"));
+				MetaData->SetValue(OuterClass, TEXT("IncludePath"), TEXT("MainCharacter.h"));
+				MetaData->SetValue(OuterClass, TEXT("ModuleRelativePath"), TEXT("MainCharacter.h"));
+				MetaData->SetValue(NewProp_BaseLookUpRate, TEXT("Category"), TEXT("Camera"));
+				MetaData->SetValue(NewProp_BaseLookUpRate, TEXT("ModuleRelativePath"), TEXT("MainCharacter.h"));
+				MetaData->SetValue(NewProp_BaseLookUpRate, TEXT("ToolTip"), TEXT("Base look up/down rate, in deg/sec. Other scaling may affect final rate."));
+				MetaData->SetValue(NewProp_BaseTurnRate, TEXT("Category"), TEXT("Camera"));
+				MetaData->SetValue(NewProp_BaseTurnRate, TEXT("ModuleRelativePath"), TEXT("MainCharacter.h"));
+				MetaData->SetValue(NewProp_BaseTurnRate, TEXT("ToolTip"), TEXT("Base turn rate, in deg/sec. Other scaling may affect final turn rate."));
+				MetaData->SetValue(NewProp_CharacterMode, TEXT("Category"), TEXT("Mode"));
+				MetaData->SetValue(NewProp_CharacterMode, TEXT("ModuleRelativePath"), TEXT("MainCharacter.h"));
+				MetaData->SetValue(NewProp_Mesh1P, TEXT("Category"), TEXT("Mesh"));
+				MetaData->SetValue(NewProp_Mesh1P, TEXT("EditInline"), TEXT("true"));
+				MetaData->SetValue(NewProp_Mesh1P, TEXT("ModuleRelativePath"), TEXT("MainCharacter.h"));
+				MetaData->SetValue(NewProp_Mesh1P, TEXT("ToolTip"), TEXT("Mesh that is shown in front of the cam"));
+				MetaData->SetValue(NewProp_FirstPersonCameraComponent, TEXT("AllowPrivateAccess"), TEXT("true"));
+				MetaData->SetValue(NewProp_FirstPersonCameraComponent, TEXT("Category"), TEXT("Camera"));
+				MetaData->SetValue(NewProp_FirstPersonCameraComponent, TEXT("EditInline"), TEXT("true"));
+				MetaData->SetValue(NewProp_FirstPersonCameraComponent, TEXT("ModuleRelativePath"), TEXT("MainCharacter.h"));
+				MetaData->SetValue(NewProp_FirstPersonCameraComponent, TEXT("ToolTip"), TEXT("First person camera might need to be changed to public"));
 #endif
 			}
 		}
 		check(OuterClass->GetClass());
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AFirstGameProjectile, 330479539);
-	static FCompiledInDefer Z_CompiledInDefer_UClass_AFirstGameProjectile(Z_Construct_UClass_AFirstGameProjectile, &AFirstGameProjectile::StaticClass, TEXT("/Script/FirstGame"), TEXT("AFirstGameProjectile"), false, nullptr, nullptr, nullptr);
-	DEFINE_VTABLE_PTR_HELPER_CTOR(AFirstGameProjectile);
-	void AMyActor::StaticRegisterNativesAMyActor()
-	{
-	}
-	UClass* Z_Construct_UClass_AMyActor_NoRegister()
-	{
-		return AMyActor::StaticClass();
-	}
-	UClass* Z_Construct_UClass_AMyActor()
-	{
-		static UClass* OuterClass = NULL;
-		if (!OuterClass)
-		{
-			Z_Construct_UClass_AActor();
-			Z_Construct_UPackage__Script_FirstGame();
-			OuterClass = AMyActor::StaticClass();
-			if (!(OuterClass->ClassFlags & CLASS_Constructed))
-			{
-				UObjectForceRegistration(OuterClass);
-				OuterClass->ClassFlags |= 0x20900080;
-
-
-PRAGMA_DISABLE_DEPRECATION_WARNINGS
-				UProperty* NewProp_MyMesh = new(EC_InternalUseOnlyConstructor, OuterClass, TEXT("MyMesh"), RF_Public|RF_Transient|RF_MarkAsNative) UObjectProperty(CPP_PROPERTY_BASE(MyMesh, AMyActor), 0x0010000000080009, Z_Construct_UClass_UStaticMeshComponent_NoRegister());
-				UProperty* NewProp_Root = new(EC_InternalUseOnlyConstructor, OuterClass, TEXT("Root"), RF_Public|RF_Transient|RF_MarkAsNative) UObjectProperty(CPP_PROPERTY_BASE(Root, AMyActor), 0x0010000000080009, Z_Construct_UClass_UShapeComponent_NoRegister());
-PRAGMA_ENABLE_DEPRECATION_WARNINGS
-				static TCppClassTypeInfo<TCppClassTypeTraits<AMyActor> > StaticCppClassTypeInfo;
-				OuterClass->SetCppTypeInfo(&StaticCppClassTypeInfo);
-				OuterClass->StaticLink();
-#if WITH_METADATA
-				UMetaData* MetaData = OuterClass->GetOutermost()->GetMetaData();
-				MetaData->SetValue(OuterClass, TEXT("IncludePath"), TEXT("MyActor.h"));
-				MetaData->SetValue(OuterClass, TEXT("ModuleRelativePath"), TEXT("MyActor.h"));
-				MetaData->SetValue(NewProp_MyMesh, TEXT("Category"), TEXT("MyActor"));
-				MetaData->SetValue(NewProp_MyMesh, TEXT("EditInline"), TEXT("true"));
-				MetaData->SetValue(NewProp_MyMesh, TEXT("ModuleRelativePath"), TEXT("MyActor.h"));
-				MetaData->SetValue(NewProp_Root, TEXT("Category"), TEXT("MyActor"));
-				MetaData->SetValue(NewProp_Root, TEXT("EditInline"), TEXT("true"));
-				MetaData->SetValue(NewProp_Root, TEXT("ModuleRelativePath"), TEXT("MyActor.h"));
-#endif
-			}
-		}
-		check(OuterClass->GetClass());
-		return OuterClass;
-	}
-	IMPLEMENT_CLASS(AMyActor, 2802697732);
-	static FCompiledInDefer Z_CompiledInDefer_UClass_AMyActor(Z_Construct_UClass_AMyActor, &AMyActor::StaticClass, TEXT("/Script/FirstGame"), TEXT("AMyActor"), false, nullptr, nullptr, nullptr);
-	DEFINE_VTABLE_PTR_HELPER_CTOR(AMyActor);
+	IMPLEMENT_CLASS(AMainCharacter, 3277238659);
+	static FCompiledInDefer Z_CompiledInDefer_UClass_AMainCharacter(Z_Construct_UClass_AMainCharacter, &AMainCharacter::StaticClass, TEXT("/Script/FirstGame"), TEXT("AMainCharacter"), false, nullptr, nullptr, nullptr);
+	DEFINE_VTABLE_PTR_HELPER_CTOR(AMainCharacter);
 	UPackage* Z_Construct_UPackage__Script_FirstGame()
 	{
 		static UPackage* ReturnPackage = nullptr;
@@ -384,8 +212,8 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 			ReturnPackage = CastChecked<UPackage>(StaticFindObjectFast(UPackage::StaticClass(), nullptr, FName(TEXT("/Script/FirstGame")), false, false));
 			ReturnPackage->SetPackageFlags(PKG_CompiledIn | 0x00000000);
 			FGuid Guid;
-			Guid.A = 0xC51E2CC6;
-			Guid.B = 0xDCF6C97F;
+			Guid.A = 0xA9A12C49;
+			Guid.B = 0x0715DE2F;
 			Guid.C = 0x00000000;
 			Guid.D = 0x00000000;
 			ReturnPackage->SetGuid(Guid);
