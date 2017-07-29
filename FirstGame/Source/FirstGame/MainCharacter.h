@@ -21,7 +21,7 @@ class AMainCharacter : public ACharacter {
 
 		UPROPERTY(VisibleDefaultsOnly, Category = "Mode")
 		bool CharacterMode;
-		
+
 	protected:
 		/**Defines initial place where the gameplay begins*/
 		virtual void BeginPlay();
