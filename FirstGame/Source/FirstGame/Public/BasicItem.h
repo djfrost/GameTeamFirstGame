@@ -6,13 +6,20 @@
 #include "GameFramework/Actor.h"
 #include "BasicItem.generated.h"
 
+
+
 UCLASS()
 class FIRSTGAME_API ABasicItem : public AActor
 {
 	GENERATED_BODY()
 private:
+
+	// UPROPERTY(EditAnywhere)
+	// UImage* ItemPicture;
+
 	UPROPERTY(EditAnywhere)
 	FString ItemName;
+
 	bool InInventory;
 public:
 	// Sets default values for this actor's properties
@@ -33,4 +40,7 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category="Items|Gameplay|Inventory", meta=(Keywords="Use an item from your inventory"))
 	virtual void UseItem();
+
+	UFUNCTION(BlueprintCallable, Category="Items|Gameplay|Inventory", meta=(Keywords="Get name of item inventory"))
+	virtual FString GetName();
 };

@@ -125,3 +125,7 @@ FirstGame/Saved/AutoScreenshot.png
 *.json
 *.bin
 FirstGame/Intermediate/Build/Win64/UE4Editor/Inc/FirstGame/Timestamp
+
+#Atom Generated Files
+*.gch
+FirstGame/Binaries/Win64/UE4Editor.modules

@@ -11,6 +11,7 @@ ABasicItem::ABasicItem(bool PickedUp)
 	if(ItemName.IsEmpty()){
 		ItemName  = FString(TEXT("Uknown Item"));
 	}
+
 	InInventory = PickedUp;
 }
 ABasicItem::ABasicItem(){
@@ -18,6 +19,7 @@ ABasicItem::ABasicItem(){
 	if(ItemName.IsEmpty()){
 		ItemName = FString(TEXT("Unknown Item"));
 	}
+
 	InInventory = false;
 }
 // Called when the game starts or when spawned

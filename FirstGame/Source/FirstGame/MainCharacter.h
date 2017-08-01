@@ -6,6 +6,7 @@
 //So we can handle input
 class UInputComponent;
 class UCharacterMovementComponent;
+class UInventorySystem;
 UCLASS(config = Game)
 class AMainCharacter : public ACharacter {
 	GENERATED_BODY()
@@ -21,6 +22,17 @@ class AMainCharacter : public ACharacter {
 
 		UPROPERTY(VisibleDefaultsOnly, Category = "Mode")
 		bool CharacterMode;
+
+		UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
+		int InteractRange;
+
+		/**Single instance of our Players Inventory. Other actors can have inventories as well.*/
+		UInventorySystem* PlayerInventory;
+
+		/**Sets the player up for combat, and red zones*/
+		void FightMode();
+		/**Sets the player up for slower walking, interactions, and puzzling*/
+		void InteractionMode();
 
 	protected:
 		/**Defines initial place where the gameplay begins*/
@@ -90,5 +102,9 @@ class AMainCharacter : public ACharacter {
 
 		/** pass in false for basic exploration mode, and true for fight mode*/
 		UFUNCTION(BlueprintCallable, Category="Gameplay|Character", meta=(Keywords="Main Character Interaction Mode Fight"))
-		void ChangeInteractionMode(bool FightMode);
+		void ChangeMode(bool Mode);
+
+		/** Check to see if the character is looking at an interactable object when button is pressed*/
+		UFUNCTION(BlueprintCallable, Category="Gameplay|Character|Interactable", meta=(Keywords="Raycast Main Character Object Item Pickup Look At"))
+		void InteractRaycast();
 };

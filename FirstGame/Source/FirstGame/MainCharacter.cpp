@@ -4,6 +4,8 @@
 #include "Components/InputComponent.h"
 #include "GameFramework/InputSettings.h"
 #include "GameFramework/CharacterMovementComponent.h"
+#include "BasicItem.h"
+#include "InventorySystem.h"
 DEFINE_LOG_CATEGORY_STATIC(LogChar, Warning, All);
 
 
@@ -31,13 +33,21 @@ AMainCharacter::AMainCharacter() {
 	Mesh1P->CastShadow = false;
 	Mesh1P->RelativeRotation = FRotator(1.9f, -19.19f, 5.2f);
 	Mesh1P->RelativeLocation = FVector(-0.5f, -4.4f, -155.7f);
+	if(InteractRange < 1){
+		InteractRange = 400;
+	}
+	PlayerInventory = NewObject<UInventorySystem>(this, UInventorySystem::StaticClass());
+	if(PlayerInventory){
+	    PlayerInventory->RegisterComponent();
+	}
+	//PlayerInventory->LoadInventory();
 }
 
 void AMainCharacter::BeginPlay()
 {
 	// Call the base class
 	Super::BeginPlay();
-	ChangeInteractionMode(false);
+	ChangeMode(false);
 }
 
 //////////////////////////////////////////////////////////////////////////
@@ -53,6 +63,7 @@ void AMainCharacter::SetupPlayerInputComponent(class UInputComponent* PlayerInpu
 
 	PlayerInputComponent->BindAxis("MoveForward", this, &AMainCharacter::MoveForward);
 	PlayerInputComponent->BindAxis("MoveRight", this, &AMainCharacter::MoveRight);
+
 
 	// We have 2 versions of the rotation bindings to handle different kinds of devices differently
 	// "turn" handles devices that provide an absolute delta, such as a mouse.
@@ -137,20 +148,48 @@ bool AMainCharacter::EnableTouchscreenMovement(class UInputComponent* PlayerInpu
 	return bResult;
 }
 
-void AMainCharacter::ChangeInteractionMode(bool FightMode){
-	CharacterMode = FightMode;
+void AMainCharacter::FightMode(){
+	UCharacterMovementComponent* Movement = this->GetCharacterMovement();
+	Movement->MaxWalkSpeed = 600;
+	Movement->MaxWalkSpeedCrouched = 300;
+}
+void AMainCharacter::InteractionMode(){
+	InputComponent->BindAction("Interact", IE_Pressed, this, &AMainCharacter::InteractRaycast);
+	UCharacterMovementComponent* Movement = this->GetCharacterMovement();
+	Movement->MaxWalkSpeed = 200;
+	Movement->MaxWalkSpeedCrouched = 100;
+}
+void AMainCharacter::ChangeMode(bool Mode){
+	CharacterMode = Mode;
 
 	UE_LOG(LogChar,Log,TEXT("ChangedInteractionMode CharacterMode is: "), (CharacterMode ? TEXT("True") : TEXT("False")));
+	CharacterMode ? FightMode() : InteractionMode();
 
-	UCharacterMovementComponent* Movement = this->GetCharacterMovement();
-	if(CharacterMode){
-		//Changes that need to happen when switched to fight mode
-		Movement->MaxWalkSpeed = 600;
-		Movement->MaxWalkSpeedCrouched = 300;
+}
+
+void AMainCharacter::InteractRaycast(){
+	FVector StartLocation = FirstPersonCameraComponent->GetComponentLocation();
+	FVector EndLocation = StartLocation + (FirstPersonCameraComponent->GetForwardVector() * InteractRange);
+
+	FHitResult RaycastHit;
+
+	//Raycast should ignore the character
+	FCollisionQueryParams CQP;
+	CQP.AddIgnoredActor(this);
+
+	//Raycast
+	GetWorld()->LineTraceSingleByChannel(RaycastHit, StartLocation, EndLocation, ECollisionChannel::ECC_WorldDynamic, CQP);
+
+	AActor* CastHit = RaycastHit.GetActor();
+	if(CastHit){
+		if(CastHit->IsA(ABasicItem::StaticClass())){
+			ABasicItem* Pickup = Cast<ABasicItem>(CastHit);
+			PlayerInventory->PickupItem(Pickup);
+		}
 	}
-	else{
-		//Changes that need to happen when switched to normal mode
-		Movement->MaxWalkSpeed = 200;
-		Movement->MaxWalkSpeedCrouched = 100;
-	}
+	// if(Object->IsA(InteractableObject::StaticClass())){
+	// 	if(GEngine){
+	// 	  GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Yellow, TEXT("We have interacted with an object"));
+	//   	}
+	// }
 }

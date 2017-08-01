@@ -4,7 +4,7 @@
 	<ItemGroup>
 		<None Include="..\..\FirstGame.uproject" />
 		<Filter Include="Source">
-			<UniqueIdentifier>{70614937-18A3-4692-BF13-2F6AB7182987}</UniqueIdentifier>
+			<UniqueIdentifier>{56FF58C5-5093-4B52-9886-41A28DD9E313}</UniqueIdentifier>
 		</Filter>
 		<None Include="..\..\Source\FirstGame.Target.cs">
 			<Filter>Source</Filter>
@@ -13,7 +13,7 @@
 			<Filter>Source</Filter>
 		</None >
 		<Filter Include="Config">
-			<UniqueIdentifier>{ACF08534-28DC-4FB4-AC53-9BA90998710F}</UniqueIdentifier>
+			<UniqueIdentifier>{3DB8D57D-C818-4ADF-A195-B0BF2C15F105}</UniqueIdentifier>
 		</Filter>
 		<None Include="..\..\Config\DefaultEditor.ini">
 			<Filter>Config</Filter>
@@ -31,7 +31,7 @@
 			<Filter>Config</Filter>
 		</None >
 		<Filter Include="Source\FirstGame">
-			<UniqueIdentifier>{C0E8E324-563C-4CFA-8266-492BF8B08A83}</UniqueIdentifier>
+			<UniqueIdentifier>{39B3839A-383B-4007-A8A8-8042FCA938C4}</UniqueIdentifier>
 		</Filter>
 		<None Include="..\..\Source\FirstGame\FirstGame.Build.cs">
 			<Filter>Source\FirstGame</Filter>
@@ -60,17 +60,35 @@
 		<ClInclude Include="..\..\Source\FirstGame\FirstGameHUD.h">
 			<Filter>Source\FirstGame</Filter>
 		</ClInclude >
-		<ClCompile Include="..\..\Source\FirstGame\FirstGameProjectile.cpp">
+		<ClCompile Include="..\..\Source\FirstGame\MainCharacter.cpp">
 			<Filter>Source\FirstGame</Filter>
 		</ClCompile >
-		<ClInclude Include="..\..\Source\FirstGame\FirstGameProjectile.h">
+		<ClInclude Include="..\..\Source\FirstGame\MainCharacter.h">
 			<Filter>Source\FirstGame</Filter>
 		</ClInclude >
-		<ClCompile Include="..\..\Source\FirstGame\MyActor.cpp">
+		<None Include="..\..\Source\FirstGame\MainCharacter.h.gch">
 			<Filter>Source\FirstGame</Filter>
+		</None >
+		<Filter Include="Source\FirstGame\Private">
+			<UniqueIdentifier>{53F6CC0F-3AF2-429E-B219-B84B19A4B7E3}</UniqueIdentifier>
+		</Filter>
+		<ClCompile Include="..\..\Source\FirstGame\Private\BasicItem.cpp">
+			<Filter>Source\FirstGame\Private</Filter>
 		</ClCompile >
-		<ClInclude Include="..\..\Source\FirstGame\MyActor.h">
-			<Filter>Source\FirstGame</Filter>
+		<ClCompile Include="..\..\Source\FirstGame\Private\InventorySystem.cpp">
+			<Filter>Source\FirstGame\Private</Filter>
+		</ClCompile >
+		<Filter Include="Source\FirstGame\Public">
+			<UniqueIdentifier>{DB399BC5-1FC5-4AEB-9E01-C78ECA1B7871}</UniqueIdentifier>
+		</Filter>
+		<ClInclude Include="..\..\Source\FirstGame\Public\BasicItem.h">
+			<Filter>Source\FirstGame\Public</Filter>
+		</ClInclude >
+		<None Include="..\..\Source\FirstGame\Public\BasicItem.h.gch">
+			<Filter>Source\FirstGame\Public</Filter>
+		</None >
+		<ClInclude Include="..\..\Source\FirstGame\Public\InventorySystem.h">
+			<Filter>Source\FirstGame\Public</Filter>
 		</ClInclude >
 	</ItemGroup>
 </Project>
