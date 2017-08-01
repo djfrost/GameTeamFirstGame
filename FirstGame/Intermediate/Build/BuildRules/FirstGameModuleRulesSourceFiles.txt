@@ -1,3 +1,0 @@
-C:\Users\VextaRelos\Documents\GameDevTeam\UE4Project\FirstGame\Source\FirstGame\FirstGame.Build.cs
-C:\Users\VextaRelos\Documents\GameDevTeam\UE4Project\FirstGame\Source\FirstGame.Target.cs
-C:\Users\VextaRelos\Documents\GameDevTeam\UE4Project\FirstGame\Source\FirstGameEditor.Target.cs
