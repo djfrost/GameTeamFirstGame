@@ -2,6 +2,7 @@
 #include "Camera/CameraComponent.h"
 #include "Components/CapsuleComponent.h"
 #include "Components/InputComponent.h"
+#include "Components/SkeletalMeshComponent.h"
 #include "GameFramework/InputSettings.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "BasicItem.h"
@@ -36,7 +37,7 @@ AMainCharacter::AMainCharacter() {
 	if(InteractRange < 1){
 		InteractRange = 400;
 	}
-	PlayerInventory = NewObject<UInventorySystem>(this, UInventorySystem::StaticClass());
+	PlayerInventory = CreateDefaultSubobject<UInventorySystem>("Inventory");
 	if(PlayerInventory){
 	    PlayerInventory->RegisterComponent();
 	}
@@ -47,7 +48,7 @@ void AMainCharacter::BeginPlay()
 {
 	// Call the base class
 	Super::BeginPlay();
-	ChangeMode(false);
+	ChangeInteractionMode(false);
 }
 
 //////////////////////////////////////////////////////////////////////////
@@ -154,16 +155,18 @@ void AMainCharacter::FightMode(){
 	Movement->MaxWalkSpeedCrouched = 300;
 }
 void AMainCharacter::InteractionMode(){
-	InputComponent->BindAction("Interact", IE_Pressed, this, &AMainCharacter::InteractRaycast);
+	if (InputComponent)
+		InputComponent->BindAction("Interact", IE_Pressed, this, &AMainCharacter::InteractRaycast);
 	UCharacterMovementComponent* Movement = this->GetCharacterMovement();
 	Movement->MaxWalkSpeed = 200;
 	Movement->MaxWalkSpeedCrouched = 100;
 }
-void AMainCharacter::ChangeMode(bool Mode){
-	CharacterMode = Mode;
+void AMainCharacter::ChangeInteractionMode(bool FightMode){
+	CharacterMode = FightMode;
 
 	UE_LOG(LogChar,Log,TEXT("ChangedInteractionMode CharacterMode is: "), (CharacterMode ? TEXT("True") : TEXT("False")));
-	CharacterMode ? FightMode() : InteractionMode();
+	CharacterMode ? this->FightMode() : InteractionMode();
+	UE_LOG(LogTemp, Warning, TEXT("ChangeInteractionMode"));
 
 }
 
@@ -172,6 +175,8 @@ void AMainCharacter::InteractRaycast(){
 	FVector EndLocation = StartLocation + (FirstPersonCameraComponent->GetForwardVector() * InteractRange);
 
 	FHitResult RaycastHit;
+
+	UE_LOG(LogTemp, Warning, TEXT("InteractRaycast"));
 
 	//Raycast should ignore the character
 	FCollisionQueryParams CQP;
@@ -184,7 +189,8 @@ void AMainCharacter::InteractRaycast(){
 	if(CastHit){
 		if(CastHit->IsA(ABasicItem::StaticClass())){
 			ABasicItem* Pickup = Cast<ABasicItem>(CastHit);
-			PlayerInventory->PickupItem(Pickup);
+			if (PlayerInventory)
+				PlayerInventory->PickupItem(Pickup);
 		}
 	}
 	// if(Object->IsA(InteractableObject::StaticClass())){
