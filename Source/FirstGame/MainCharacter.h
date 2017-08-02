@@ -105,14 +105,7 @@ class AMainCharacter : public ACharacter {
 		UFUNCTION(BlueprintCallable, Category="Gameplay|Character|Interactable", meta=(Keywords="Raycast Main Character Object Item Pickup Look At"))
 		void InteractRaycast();
 
-		UInventorySystem* GetInventory() { return PlayerInventory; }
-
 		/**Single instance of our Players Inventory. Other actors can have inventories as well.*/
 		UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 		UInventorySystem* PlayerInventory = nullptr;
-
-		UFUNCTION(BlueprintImplementableEvent)
-		void PlayerInventoryChanged();
-
-
 };

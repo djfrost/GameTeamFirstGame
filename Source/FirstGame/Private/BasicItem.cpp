@@ -41,7 +41,9 @@ void ABasicItem::PickupItem(){
 	      GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Yellow, ItemName);
 		  GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Yellow, TEXT("This item is being picked up"));
 	  	}
-		Destroy();
+		SetActorHiddenInGame(true);
+		SetActorEnableCollision(false);
+		InInventory = true;
 	}
 }
 void ABasicItem::UseItem(){
@@ -49,4 +51,9 @@ void ABasicItem::UseItem(){
 	  GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Yellow, ItemName);
 	  GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Yellow, TEXT("This item is being used"));
 	}
+}
+
+FString ABasicItem::GetName()
+{
+	return ItemName;
 }

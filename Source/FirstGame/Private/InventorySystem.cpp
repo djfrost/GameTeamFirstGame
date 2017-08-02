@@ -10,6 +10,7 @@ UInventorySystem::UInventorySystem()
 	// off to improve performance if you don't need them.
 	PrimaryComponentTick.bCanEverTick = true;
 
+
 	// ...
 }
 
@@ -33,8 +34,18 @@ void UInventorySystem::TickComponent(float DeltaTime, ELevelTick TickType, FActo
 }
 
 void UInventorySystem::PickupItem(ABasicItem* Item){
-	if(GEngine){
-		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Yellow, Item->GetName());
-	}
+	Items.Emplace(Item);
+	OnInventoryChange.Broadcast();
 	Item->PickupItem();
+}
+
+void UInventorySystem::UseItem(int id)
+{
+	if (id >= 0 && id < Items.Num())
+	{
+		Items[id]->UseItem();
+		Items[id]->Destroy();
+		Items.RemoveAt(id);
+		OnInventoryChange.Broadcast();
+	}
 }

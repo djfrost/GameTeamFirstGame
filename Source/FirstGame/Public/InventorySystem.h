@@ -6,6 +6,8 @@
 #include "Components/ActorComponent.h"
 #include "InventorySystem.generated.h"
 
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnInventoryChangedDelegate);
+
 class ABasicItem;
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
@@ -18,6 +20,21 @@ private:
 public:
 	// Sets default values for this component's properties
 	UInventorySystem();
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	FString RandomText;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	TArray<ABasicItem*> Items;
+
+	UFUNCTION(BlueprintCallable)
+	FString GetSlot1() { return TEXT("xxx"); };
+
+	UPROPERTY(BlueprintAssignable, BlueprintCallable, Category = "Custom")
+	FOnInventoryChangedDelegate OnInventoryChange;
+	
+	//UFUNCTION(BlueprintImplementableEvent)
+	//void InventoryChanged();
 
 protected:
 	// Called when the game starts
@@ -32,6 +49,9 @@ public:
 	//void SaveInventory();
 	UFUNCTION(BlueprintCallable, Category="Items|Gameplay|Inventory", meta=(Keywords="Pickup Item Pick up put in Inventory Character"))
 	void PickupItem(ABasicItem* Item);
-	//void UseItem(ABasicItem* Item);
+	
+	UFUNCTION(BlueprintCallable, Category = "Items|Gameplay|Inventory", meta = (Keywords = "Use Item"))
+	void UseItem(int id);
+	
 	//void RemoveItem(ABasicItem* Item);
 };

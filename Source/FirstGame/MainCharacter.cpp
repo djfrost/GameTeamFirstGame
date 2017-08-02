@@ -61,6 +61,7 @@ void AMainCharacter::SetupPlayerInputComponent(class UInputComponent* PlayerInpu
 
 	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
 	PlayerInputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
+	PlayerInputComponent->BindAction("Interact", IE_Pressed, this, &AMainCharacter::InteractRaycast);
 
 	PlayerInputComponent->BindAxis("MoveForward", this, &AMainCharacter::MoveForward);
 	PlayerInputComponent->BindAxis("MoveRight", this, &AMainCharacter::MoveRight);
@@ -155,8 +156,6 @@ void AMainCharacter::FightMode(){
 	Movement->MaxWalkSpeedCrouched = 300;
 }
 void AMainCharacter::InteractionMode(){
-	if (InputComponent)
-		InputComponent->BindAction("Interact", IE_Pressed, this, &AMainCharacter::InteractRaycast);
 	UCharacterMovementComponent* Movement = this->GetCharacterMovement();
 	Movement->MaxWalkSpeed = 200;
 	Movement->MaxWalkSpeedCrouched = 100;

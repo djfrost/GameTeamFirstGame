@@ -41,6 +41,6 @@ public:
 	UFUNCTION(BlueprintCallable, Category="Items|Gameplay|Inventory", meta=(Keywords="Use an item from your inventory"))
 	virtual void UseItem();
 
-	//UFUNCTION(BlueprintCallable, Category="Items|Gameplay|Inventory", meta=(Keywords="Get name of item inventory"))
-	//virtual FString GetName();
+	UFUNCTION(BlueprintPure, Category="Items|Gameplay|Inventory", meta=(Keywords="Get name of item inventory"))
+	virtual FString GetName();
 };
